@@ -2,9 +2,15 @@
 
 we have created a folder and npx creat-react-app netflix-gpt
 I have setup tailwind by going through https://tailwindcss.com/docs/installation/framework-guides
-
--Header
+-Routing
+-Header 
 -Login Form
+-Form validations
+-Firebase
+-SignUp,SignIn,SignOut APIs
+-Routing
+-Created Redux store with user slice
+-Update Profile
 
 #Features
 -Login/Sign-up
