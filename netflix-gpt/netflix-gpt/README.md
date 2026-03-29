@@ -18,6 +18,10 @@ I have setup tailwind by going through https://tailwindcss.com/docs/installation
 -Created movie trailer and movie details section
 -Created custom hook to get movie trailer and store in redux store
 -Align movietrailer and movie details 
+-Created secondary container
+-Created movie list
+-Created movie card
+-Figured out TMDB movie APIs
 
 #Features
 -Login/Sign-up
@@ -29,8 +33,9 @@ I have setup tailwind by going through https://tailwindcss.com/docs/installation
         -Trailer as Background
         -Tile and description
     -Secondary component
-        -Movie Suggestions
-        -MovieLists *
+        -Movie list * n
+           -list name
+           -Moviecards *
 
 -NetflixGPT
     -search bar
