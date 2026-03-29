@@ -8,7 +8,6 @@ export const usePopularMovies = () => {
       const fetchData = async () => {
       const response = await fetch('https://api.themoviedb.org/3/movie/popular', ApiOptions); 
       const data = await response.json();
-      console.log("Fetched data: ", data);
       dispatch(addPopularMovies(data.results));
     }
   useEffect(()=>{

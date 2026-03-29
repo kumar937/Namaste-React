@@ -16,11 +16,9 @@ const Header = () => {
       if (user) {
         await user.reload(); 
         dispatch(addUser({ uid: user.uid, email: user.email, displayName: user.displayName,photoURL:user.photoURL }));
-        console.log("onAuthStateChanged triggered with user: ");
         navigate('/browse');
       } else {
         navigate('/');
-        console.log("onAuthStateChanged triggered with no user");
         dispatch(removeUser());
       }
     });

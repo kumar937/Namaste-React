@@ -8,3 +8,21 @@ export const ApiOptions = {
   }
 };
 export const baseImageUrl = "https://image.tmdb.org/t/p/w500/";
+export const bgUrl = "https://assets.nflxext.com/ffe/siteui/vlv3/8cc08720-ac1c-4364-bcbd-9495bf0308cd/web/IN-en-20260323-TRIFECTA-perspective_0b8c8e4e-71ee-48bd-8e16-da74f083a838_large.jpg";
+
+export const languages = [
+  {key: 'English', label: 'English'},
+  {key: 'Hindi', label: 'Hindi'},
+  {key: 'Spanish', label: 'Spanish'}
+]
+
+export const searchLabel = {
+  English: 'Search',
+  Hindi: 'खोज',
+  Spanish: 'Buscar'
+}
+export const searchInputPlaceholder = {
+  English: 'Search for movies, TV shows, and more',
+  Hindi: 'फिल्में, टीवी शो और अधिक के लिए खोजें',
+  Spanish: 'Busca películas, programas de televisión y más'
+}

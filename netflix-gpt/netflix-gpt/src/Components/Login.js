@@ -6,7 +6,7 @@ import {auth} from '../Firebase'
 import { addUser } from '../utils/userSlice';
 import { useDispatch } from 'react-redux';
 import { createUserWithEmailAndPassword,signInWithEmailAndPassword,updateProfile } from "firebase/auth";
-import { PhotoURL } from '../utils/constants';
+import { PhotoURL,bgUrl } from '../utils/constants';
 const Login = () => {
     const dispatch = useDispatch();
     const [isSignUpForm,setSignUpForm] = useState(false);
@@ -40,12 +40,10 @@ const Login = () => {
       else {
         signInWithEmailAndPassword(auth, email.current.value, password.current.value)
           .then((userCredential) => {
-            console.log("User signed in successfully!");
           })
           .catch((error) => {
             const errorCode = error.code;
             const errorMessage = error.message;
-            console.log(errorCode + ": " + errorMessage);
             setError(errorCode + ": " + errorMessage);
           });
       }
@@ -55,8 +53,15 @@ const Login = () => {
       <div className='relative z-10'>
         <Header />
       </div>
-      <div className="absolute inset-0 bg-cover bg-center bg-no-repeat 
-             bg-[linear-gradient(to_top,rgba(0.5,0.5,0.5,1),rgba(0.5,0.5,0.5,0.5),transparent),url('https://assets.nflxext.com/ffe/siteui/vlv3/8cc08720-ac1c-4364-bcbd-9495bf0308cd/web/IN-en-20260323-TRIFECTA-perspective_0b8c8e4e-71ee-48bd-8e16-da74f083a838_large.jpg')]">
+      <div
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        style={{
+          backgroundImage: `
+      linear-gradient(to top, rgba(0,0,0,1), rgba(0,0,0,0.6), transparent),
+      url(${bgUrl})
+    `
+        }}
+      >
       </div>
 
       <form onSubmit={(e) => { e.preventDefault(); }} className='w-3/12 absolute  p-12 bg-black my-36 mx-auto left-0 right-0 rounded-lg opacity-80 text-white '>
