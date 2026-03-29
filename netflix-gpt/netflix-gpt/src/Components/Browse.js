@@ -1,21 +1,33 @@
 import Header from './Header'
 import { auth } from '../Firebase'
-import { useSelector } from 'react-redux';
 import { signOut } from "firebase/auth";
 import {useNowPlayingMovies}  from '../CustomHooks/useNowplayingMovies';
-import { useDispatch } from 'react-redux';
-import { useEffect } from 'react';
+import { useDispatch,useSelector } from 'react-redux';
 import TrailerVideo from './TrailerVideo';
 import TrailerDetails from './TrailerDetails';
 import SecondaryContainer from './SecondaryContainer';
+import { toggleGptSearch } from '../utils/GptSearchSlice';
+import GptSearch from './GptSearch';
+import { useState } from 'react';
+import { setLanguageKey } from '../utils/appConfigSlice';
+import { languages } from '../utils/constants';
+
 const Browse = () => {
   const user = useSelector((state) => state.user);
   const movies = useSelector((state) => state.movie.nowPlayingMovies);
+  const [isGptSearch, setIsGptSearch] = useState(false);
   const dispatch = useDispatch();
+  const toggleGpt = () => {
+    setIsGptSearch(!isGptSearch);
+    dispatch(toggleGptSearch());
+  }
   const signOUT = () => {
     signOut(auth).then(() => {
     }).catch((error) => {
     });
+  }
+  const setLanguage = (e) => {
+    dispatch(setLanguageKey(e.target.value));
   }
   useNowPlayingMovies();
   return (
@@ -25,32 +37,41 @@ const Browse = () => {
   <Header />
   </div>
 
-  <div className="flex gap-4 z-20 px-8 pt-8">
-          
-          <span className="text-green-500 mt-8 italic">
+  { <div className="flex gap-4 z-20 px-8 pt-8">
+          <button className='px-4 bg-purple-700  rounded-lg text-white text-lg py-2' onClick={toggleGpt}>{!isGptSearch ?'GPT Search':'Home Page'}</button>
+          {/* <span className="text-green-500 italic">
             {"Hi, " + user?.displayName}
-          </span>
-          <img
-            className="w-16 h-16 rounded-full"
-            src={user?.photoURL}
-            alt="Profile"
-          />
+          </span> */}
+          
+          {isGptSearch && <span>
+            <select onChange= {(e)=>setLanguage(e)} className="bg-gray-700 text-white rounded-md px-4 py-3.5 text-xl">
+             {languages.map((lang)=>(<option key={lang.key} value={lang.key}>{lang.label}</option>))}
+            </select>
+          </span>}
+            
           <button
-            className="bg-red-600 text-white h-12 w-20 rounded-md mt-3 py-1 text-sm cursor-pointer"
+            className="bg-red-600 text-white rounded-md  text-xl px-4  cursor-pointer"
             onClick={signOUT}
           >
             Sign Out
           </button>
-        </div>
+          <img
+            className="w-14 h-14 rounded-full"
+            src={user?.photoURL}
+            alt="Profile"
+          />
+        </div>}
       </div>
-      {movies.length > 0 && <div>
+      {movies.length > 0 && !isGptSearch ? <><div>
         <TrailerDetails movie={movies[15]} />
         <TrailerVideo movieId={movies[15].id} />
         <div />
 
-      </div>}
-        
+      </div>
       <SecondaryContainer/>
+      </> :
+      <GptSearch/>
+      }
     </div>
   )
 }

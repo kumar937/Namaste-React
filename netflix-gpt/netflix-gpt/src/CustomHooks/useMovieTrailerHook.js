@@ -10,7 +10,6 @@ const useMovieTrailerHook = (movieId) => {
         const data = await response.json();
         const filteredData = data?.results?.filter((video) => video.type === 'Trailer' && video.site === 'YouTube');
         const trailer = filteredData?.length > 0 ? filteredData[0] : filteredData?.[1];
-        console.log(trailer);
         dispatch(addMovieTrailer(trailer));
     }
     const movieTrailer = useSelector((state) => state.movie.movieTrailer);

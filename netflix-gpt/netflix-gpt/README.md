@@ -22,7 +22,11 @@ I have setup tailwind by going through https://tailwindcss.com/docs/installation
 -Created movie list
 -Created movie card
 -Figured out TMDB movie APIs
-
+-Add a Gpt Search/Home page toggle button in browse page
+-Designed Gpt search page
+-Design Gpt search page for multi lang
+-Added search bar
+-Added multi langual feature for search page
 #Features
 -Login/Sign-up
     -Sign-In/Sign Up form

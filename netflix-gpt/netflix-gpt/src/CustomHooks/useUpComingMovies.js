@@ -8,7 +8,6 @@ export const useUpComingMovies = () => {
       const fetchData = async () => {
       const response = await fetch('https://api.themoviedb.org/3/movie/upcoming', ApiOptions); 
       const data = await response.json();
-      console.log("Fetched data: ", data);
       dispatch(addUpComingMovies(data.results));
     }
   useEffect(()=>{
