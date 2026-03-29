@@ -7,6 +7,7 @@ import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import TrailerVideo from './TrailerVideo';
 import TrailerDetails from './TrailerDetails';
+import SecondaryContainer from './SecondaryContainer';
 const Browse = () => {
   const user = useSelector((state) => state.user);
   const movies = useSelector((state) => state.movie.nowPlayingMovies);
@@ -48,8 +49,8 @@ const Browse = () => {
         <div />
 
       </div>}
-
-      {/* //Secondary Component */}
+        
+      <SecondaryContainer/>
     </div>
   )
 }
