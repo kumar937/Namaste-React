@@ -1,9 +1,38 @@
-import React from 'react'
-import { useSelector } from 'react-redux';
+import { signOut,onAuthStateChanged} from 'firebase/auth'
+import { auth } from '../Firebase'
+import { useDispatch } from 'react-redux'
+import {  removeUser } from '../utils/userSlice'
+import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { addUser } from '../utils/userSlice';
+import { AppLogo } from '../utils/constants';
 const Header = () => {
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, async (user) => {
+      // Ensure we have the latest user data
+      if (user) {
+        await user.reload(); 
+        dispatch(addUser({ uid: user.uid, email: user.email, displayName: user.displayName,photoURL:user.photoURL }));
+        console.log("onAuthStateChanged triggered with user: ");
+        navigate('/browse');
+      } else {
+        navigate('/');
+        console.log("onAuthStateChanged triggered with no user");
+        dispatch(removeUser());
+      }
+    });
+
+    return () => {
+      unsubscribe();
+    };//this will be called when the component unmounts, ensuring we clean up the listener to prevent memory leaks and unintended behavior.
+
+  }, []);
   return (
     <div className='w-screen absolute px-8 py-2 bg-gradient-to-b from-black'>
-        <img className= "w-44" src = "https://help.nflxext.com/helpcenter/OneTrust/oneTrust_production_2026-03-26/consent/87b6a5c0-0104-4e96-a291-092c11350111/019ae4b5-d8fb-7693-90ba-7a61d24a8837/logos/dd6b162f-1a32-456a-9cfe-897231c7763c/4345ea78-053c-46d2-b11e-09adaef973dc/Netflix_Logo_PMS.png" alt="Logo alternative"/>
+        <img className= "w-44" src ={AppLogo}  alt="Logo alternative"/>
         
         </div>
   )
