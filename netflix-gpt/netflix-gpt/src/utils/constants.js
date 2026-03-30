@@ -29,5 +29,4 @@ export const searchInputPlaceholder = {
   Spanish: 'Busca películas, programas de televisión y más'
 }
 export const googleApiKey = process.env.REACT_APP_GEMINI_API_KEY;
-//export const googleApiKey = "AIzaSyCNIRDotK4QB8cE9fOc9tSfrSZvKgDsY1Y";
 export const getMovieDetailsUrl = "https://api.themoviedb.org/3/search/movie?query="
