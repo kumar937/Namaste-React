@@ -3,7 +3,9 @@ import { baseImageUrl } from '../utils/constants';
 
 const MovieCard = ({movie}) => {
   return (
-    <img className='w-44' src={baseImageUrl + movie.poster_path} alt={movie.title} />
+    movie.poster_path ? (
+      <img className='w-44' src={baseImageUrl + movie.poster_path} alt={movie.title} />
+    ) : null
   )
 }
 

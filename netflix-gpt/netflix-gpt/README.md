@@ -27,6 +27,14 @@ I have setup tailwind by going through https://tailwindcss.com/docs/installation
 -Design Gpt search page for multi lang
 -Added search bar
 -Added multi langual feature for search page
+-Added and initialized Gemini AI 
+-Implemented movie recommendations using Gemini
+-Displayed AI movie sugesstions below the search bar by getting movie details from TMDB
+-Added AI suggested movie list and movie details into redux store
+-Secured API keys using env file
+-Applied Memoization to reduce api calls on tab switches
+
+
 #Features
 -Login/Sign-up
     -Sign-In/Sign Up form
