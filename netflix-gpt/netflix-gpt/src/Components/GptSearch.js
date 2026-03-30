@@ -47,7 +47,7 @@ const getMoviedetails = async (title) => {
 
   <div className="flex flex-col items-center pt-40 min-h-screen">
 
-    <div className='grid grid-cols-12 w-1/2 bg-black/80 justify-center items-center h-20 px-6 gap-4 rounded-lg'>
+    <div className='grid grid-cols-12 w-full md:w-1/2 bg-black/80 justify-center items-center h-20 px-6 gap-4 rounded-lg'>
       
       <input
         type='text'
@@ -57,7 +57,7 @@ const getMoviedetails = async (title) => {
       />
 
       <button
-        className="col-span-3 h-3/4 bg-red-600 text-white rounded-md py-1 text-sm cursor-pointer"
+        className="col-span-3 px-2 py-3 md:h-3/4 bg-red-600 text-white rounded-md md:py-1 text-sm cursor-pointer"
         onClick={search}
       >
         {searchLabel[language]}

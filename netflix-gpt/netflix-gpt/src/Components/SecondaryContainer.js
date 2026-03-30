@@ -14,7 +14,7 @@ const SecondaryContainer = () => {
     
   return (
     <div className="bg-black">
-    <div className="-mt-64 relative z-30">
+    <div className=" md:-mt-64 relative z-30">
     {movieslist?.length > 0 && movieslist?.map((movieCategory,index) => (<MovieList key={index} title={movieCategory.name} movies={movieCategory.movies}/>))}
     </div>
     </div>

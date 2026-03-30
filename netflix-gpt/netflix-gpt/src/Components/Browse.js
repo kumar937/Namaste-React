@@ -32,13 +32,13 @@ const Browse = () => {
   useNowPlayingMovies();
   return (
     <div>
-      <div className="absolute top-0 left-0 w-full z-10 flex justify-between  ">
-  <div>
+      <div className="absolute top-0 left-0 w-full z-10   md:flex md:justify-between">
+  <div className="">
   <Header />
   </div>
 
-  { <div className="flex gap-4 z-20 px-8 pt-8">
-          <button className='px-4 bg-purple-700  rounded-lg text-white text-lg py-2' onClick={toggleGpt}>{!isGptSearch ?'GPT Search':'Home Page'}</button>
+  { <div className=" md:flex md:gap-4 z-20 md:px-8 md:pt-8">
+          <button className='px-2 md:px-4 bg-purple-700  rounded-lg text-white text-lg py-1 md:py-2' onClick={toggleGpt}>{!isGptSearch ?'GPT Search':'Home Page'}</button>
           {/* <span className="text-green-500 italic">
             {"Hi, " + user?.displayName}
           </span> */}
