@@ -62,7 +62,7 @@ const Browse = () => {
           />
         </div>}
       </div>
-      {movies.length > 0 && !isGptSearch ? <><div>
+      {!isGptSearch && movies?.length > 0 ? <><div>
         <TrailerDetails movie={movies[15]} />
         <TrailerVideo movieId={movies[15].id} />
         <div />
