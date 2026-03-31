@@ -13,7 +13,7 @@ const useMovieTrailerHook = (movieId) => {
         dispatch(addMovieTrailer(trailer));
     }
     useEffect(() => {
-        !movieTrailer && getMovieTrailer(movieId);},[]);
+        !movieTrailer?.key && getMovieTrailer(movieId);},[]);
 }
 
 export default useMovieTrailerHook

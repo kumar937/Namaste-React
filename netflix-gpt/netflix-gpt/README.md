@@ -33,7 +33,8 @@ I have setup tailwind by going through https://tailwindcss.com/docs/installation
 -Added AI suggested movie list and movie details into redux store
 -Secured API keys using env file
 -Applied Memoization to reduce api calls on tab switches
-
+-Made the app Responsive for mobile and desktop
+-Displaying Movie trailer on select of movie 
 
 #Features
 -Login/Sign-up

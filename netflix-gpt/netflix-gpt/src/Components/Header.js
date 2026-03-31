@@ -29,8 +29,8 @@ const Header = () => {
 
   }, []);
   return (
-    <div className='w-screen absolute px-8 py-2 bg-gradient-to-b from-black'>
-        <img className= "w-44" src ={AppLogo}  alt="Logo alternative"/>
+    <div className='md: w-screen absolute md:px-8 md:py-2 md:bg-gradient-to-b from-black bg-black '>
+        <img className= "w-24 md:w-44" src ={AppLogo}  alt="Logo alternative"/>
         
         </div>
   )

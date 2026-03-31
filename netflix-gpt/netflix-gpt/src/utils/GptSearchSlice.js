@@ -2,7 +2,9 @@ import { createSlice } from "@reduxjs/toolkit";
 const gptSearchSlice = createSlice({
     name:'gptSearch',
     initialState:{toggleGptSearch: false,
-        GptSearchResults:{names:[], movies:[]}
+        GptSearchResults:{names:[], movies:[]
+        },
+        Gptkey: null,
     },
     reducers:{
         toggleGptSearch:(state)=>{
@@ -14,8 +16,9 @@ const gptSearchSlice = createSlice({
             if(action?.payload?.movies) {
                 state.GptSearchResults.movies = action.payload.movies;
             }
-        }
+        },
+        
     }
 })
 export default gptSearchSlice.reducer;
-export const {toggleGptSearch,setGptSearchResults} = gptSearchSlice.actions;
+export const {toggleGptSearch,setGptSearchResults,setGptKey} = gptSearchSlice.actions;

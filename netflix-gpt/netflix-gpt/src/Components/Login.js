@@ -17,7 +17,6 @@ const Login = () => {
     const password = useRef('');
     const name = useRef('');
     const [error,setError] = useState(null); 
-    const navigate = useNavigate();
     
     const Submit =()=>{
        const error = formValidator(email.current.value, password.current.value, name.current.value, isSignUpForm);
@@ -54,7 +53,7 @@ const Login = () => {
         <Header />
       </div>
       <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat h-screen object-cover"
         style={{
           backgroundImage: `
       linear-gradient(to top, rgba(0,0,0,1), rgba(0,0,0,0.6), transparent),
@@ -64,7 +63,7 @@ const Login = () => {
       >
       </div>
 
-      <form onSubmit={(e) => { e.preventDefault(); }} className='w-3/12 absolute  p-12 bg-black my-36 mx-auto left-0 right-0 rounded-lg opacity-80 text-white '>
+      <form onSubmit={(e) => { e.preventDefault(); }} className='w-full md:w-3/12 absolute  p-12 bg-black my-36 mx-auto left-0 right-0 rounded-lg opacity-80 text-white '>
         <span className='text-2xl font-bold'>{isSignUpForm ? 'SignUp' : 'SignIn'}</span>
         {isSignUpForm && <input
           ref={name}

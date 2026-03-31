@@ -8,7 +8,7 @@ const GptSearchResults = () => {
     const gptResults = useSelector((state) => state.gptSearch.GptSearchResults);
     console.log("gpt results",gptResults);
   return (
-    <div className='bg-black opacity-80 px-6 py-6 my-4 rounded-lg mt-16'>
+    <div className='bg-black opacity-80 px-6 py-6 w-1/2 my-4 rounded-lg mt-16 text-white'>
 {        gptResults.movies.length > 0 ?
              gptResults.names.map((name,index)=>(<MovieList key={index} title={name} movies={gptResults.movies[index].results}/>))
         :
