@@ -9,9 +9,10 @@ import GptSearchResults from "./GptSearchResults";
 import { getMovieDetailsUrl } from "../utils/constants";
 import { ApiOptions} from "../utils/constants"
 import { useState } from "react";
+import Spinner from "./Spinner";
 
 const GptSearch = () => {
-  const [showSearchResults, setShowSearchResults] = useState(false);
+  const [showSearchResults, setShowSearchResults] = useState(null);
     const searchInputRef = useRef();
     const dispatch = useDispatch();
     const language = useSelector((state) => state.appConfig.language);
@@ -27,13 +28,13 @@ const getMoviedetails = async (title) => {
              return moviedetailsList
             }
   const search = async () => {
-    setShowSearchResults(false);
+    setShowSearchResults('N');
     //call open ai with serach string and get list of movie names
      const suggestions = await getMovieRecommendations(searchInputRef.current.value);
      const moviesTitleList = suggestions.split(',');
      const movies = await fetchData(moviesTitleList);
      dispatch(setGptSearchResults({names: moviesTitleList, movies: movies}));
-     setShowSearchResults(true);
+     setShowSearchResults('Y');
   }
   
   return (
@@ -66,7 +67,7 @@ const getMoviedetails = async (title) => {
     </div>
 
     <div className="w-full flex justify-center mt-10">
-      {showSearchResults && <GptSearchResults />}
+      {showSearchResults === 'Y' ? <GptSearchResults /> : showSearchResults === 'N' ? <Spinner className='bg-black opacity-80 px-6 py-6 w-1/2 my-4 rounded-lg mt-16 text-white' /> : null}
     </div>
 
   </div>

@@ -17,7 +17,6 @@ const Login = () => {
     const password = useRef('');
     const name = useRef('');
     const [error,setError] = useState(null); 
-    const navigate = useNavigate();
     
     const Submit =()=>{
        const error = formValidator(email.current.value, password.current.value, name.current.value, isSignUpForm);
